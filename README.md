@@ -1,24 +1,19 @@
-# README
+# States and countries
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Running the app
+We use a postgres db container for development. You'll need to run some database commands
+once the db container is running:
+  
+* `docker-compose up db`
+* `docker-compose build web`
+* `docker-compose run --rm web rake db:create`
+* `docker-compose run --rm web rake db:migrate`
 
-Things you may want to cover:
+finally you can run the application as:
+`docker-compose up web`
+### Using docker:
+`docker-compose up` should start both the db and the app on your localhost
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Testing the app
+* `docker-compose exec web bundle exec rspec <file name>` will test a specific file 
+* `docker-compose exec web bundle exec rspec` will test all files
