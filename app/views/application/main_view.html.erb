@@ -1,5 +1,12 @@
-<h1>Select a Country:</h1>
+<h1>Select a Country:</h1></br>
 <%= form_tag('/pick-country', method: "post") do %>
   <%= select_tag("country", options_from_collection_for_select(@countries, "code", "name")) %>
+  <%= submit_tag %>
+  <br/>
+<% end %>
+
+<% if !@states.blank? %>
+  <h1>Select a State</h1>
+  <%= select_tag("state", options_from_collection_for_select(@states, "code", "name")) %>
   <%= submit_tag %>
 <% end %>

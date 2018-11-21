@@ -8,4 +8,9 @@ describe ApplicationController, type: :controller do
     get :main_view
     expect(response).to render_template("main_view")
   end
+
+  it "should show the states for a country" do
+    get :pick_country, params: { country: "USA" }
+    expect(response).to render_template("main_view")
+  end
 end
